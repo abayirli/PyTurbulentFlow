@@ -1,24 +1,25 @@
 import numpy as np
-from utils import IX, diffuse, lin_solve, project, advect
+from matplotlib import pyplot as plt
+from utils import diffuse, lin_solve, project, advect
 from config import N, iter, SCALE, t
 
 
 #Fluid cube class
 class Fluid:
-    def __init__(self,dt, diffusion, viscosity, N):
+    def __init__(self, dt, diffusion, viscosity):
         self.size = N
         self.dt = dt
         self.diff = diffusion
         self.visc = viscosity
 
-        self.s = np.zeros(N * N)
-        self.density = np.zeros(N * N)
+        self.s = np.zeros((N,N))
+        self.density = np.zeros((N,N))
 
-        self.Vx = np.zeros(N * N)
-        self.Vy = np.zeros(N * N)
+        self.Vx = np.zeros((N,N))
+        self.Vy = np.zeros((N,N))
 
-        self.Vx0 = np.zeros(N * N)
-        self.Vy0 = np.zeros(N * N)
+        self.Vx0 = np.zeros((N,N))
+        self.Vy0 = np.zeros((N,N))
 
     
     #step method
@@ -48,16 +49,13 @@ class Fluid:
 
     #method to add density
     def addDensity(self, x, y, amount):
-        index = IX(x, y)
-        self.density[index] += amount
-
+        self.density[x,y] += amount
 
   #method to add velocity
     def addVelocity(self, x, y, amountX, amountY):
-        index = IX(x, y)
-        self.Vx[index] += amountX
-        self.Vy[index] += amountY
-
-    def render():
-        pass
+        self.Vx[x,y] += amountX
+        self.Vy[x,y] += amountY
+    
+    def render(self):
+        return self.s
 

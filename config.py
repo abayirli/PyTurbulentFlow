@@ -1,4 +1,6 @@
-N = 256
-iter = 2
-SCALE = 4
-t = 0
+N = 128                 # Size of the square grid (N x N) (int)
+iter = 8                # Number of iterations for differential equation solver (int)
+SCALE = 4               # Scale term (int)
+t = 0                   # Initial time (int)
+step = 10               # Number of iterations in the simulation (int)
+output_type = "gif"     # Type of the output ("gif" or "mp4")
