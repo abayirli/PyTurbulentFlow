@@ -5,13 +5,15 @@ Turbulent Flow simulation with visualisation in Python
 * Code directly ported from [Fluid Simulation for Dummies](https://mikeash.com/pyblog/fluid-simulation-for-dummies.html)
 
 ## Requirements
--- `numpy
--- `matplotlib`
--- `tqdm`
+* `numpy`
+* `matplotlib`
+* `tqdm`
 
 ## Try it yourself:
 Clone the repo. First change the parameters in the configuration file `config.py` then run from the CLI:
 
 ```console
+$ git clone https://github.com/abayirli/PyTurbulentFlow.git
+$ cd PyTurbulentFlow
 $ python3 main.py
 ````
